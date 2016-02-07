@@ -1,0 +1,16 @@
+########################################
+# Trajectory Query Request Constants   #
+########################################
+string DEFAULT_SERVICE_NAME=riemo_move_trajectory_query_service
+
+########################################
+# Trajectory Query Request             #
+########################################
+
+---
+
+########################################
+# Trajectory Query Response            #
+########################################
+
+trajectory_msgs/JointTrajectory trajectory
