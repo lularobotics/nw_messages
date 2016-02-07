@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(riemo_move_basic_action)
+project(riemo_move_action)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -11,6 +11,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  geometry_msgs
+  trajectory_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -47,18 +49,16 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+add_message_files(
+  FILES
+  Sphere.msg
+)
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+  FILES
+  QueryTrajectory.srv
+)
 
 ## Generate actions in the 'action' folder
 add_action_files(
@@ -69,8 +69,10 @@ add_action_files(
 ## Generate added messages and services with any dependencies listed here
 generate_messages(
   DEPENDENCIES
-  actionlib_msgs
-  std_msgs
+    actionlib_msgs
+    std_msgs
+    geometry_msgs
+    trajectory_msgs
 )
 
 ################################################
@@ -105,7 +107,15 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES riemo_move_basic_action
-  CATKIN_DEPENDS actionlib actionlib_msgs message_generation roscpp rospy std_msgs
+  CATKIN_DEPENDS
+    actionlib
+    actionlib_msgs
+    message_generation
+    roscpp
+    rospy
+    std_msgs
+    geometry_msgs
+    trajectory_msgs
 #  DEPENDS system_lib
 )
 
