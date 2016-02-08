@@ -1,0 +1,37 @@
+########################################
+# Goal constants                       #
+########################################
+
+# Action name used to addess the server
+string DEFAULT_ACTION_NAME=riemo_move_broadcast_trajectory_action
+
+########################################
+# Goal definition                      #
+########################################
+
+TrajectoryTiming trajectory_timing
+
+---
+
+########################################
+# Result definition                    #
+########################################
+
+#
+# Planners result data
+#
+
+# currently not needed
+
+---
+
+########################################
+# Feedback definition                  #
+########################################
+
+#
+# Planning feedback data
+#
+#
+
+# currently not needed
