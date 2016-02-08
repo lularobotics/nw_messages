@@ -18,15 +18,11 @@ int32 ORIENTATION_CONSTRAINT_UPRIGHT_END_ONLY=2
 # bool                  obstacle_enabled
 # geometry_msgs/Point   target
 # int32                 orientation_constraint
-# Sphere                sphere_obstacle_constraint
 # float32[]             approach_constraint
 # float32[]             passthrough_constraint
 # float32[]             obstacle_linearization_constraint
 
 # Declaration
-
-# Enable or disable obstacle avoidance
-bool obstacle_enabled
 
 # 3D target position
 geometry_msgs/Point target
@@ -37,9 +33,6 @@ geometry_msgs/Point target
 #   ORIENTATION_CONSTRAINT_UPRIGHT or 1: Upright through the entire trajectory
 #   ORIENTATION_CONSTRAINT_UPRIGHT_END_ONLY or 2: Upright at the end of motion
 int32 orientation_constraint
-
-# Bounding sphere obstacle constraint
-Sphere sphere_obstacle_constraint
 
 float32[] approach_constraint
 float32[] passthrough_constraint
