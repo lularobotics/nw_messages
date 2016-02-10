@@ -1,0 +1,17 @@
+########################################
+# Broadcast Request Constants i        #
+########################################
+string DEFAULT_SERVICE_NAME=riemo_move_broadcast_trajectory_service
+
+########################################
+# Broadcast Request                    #
+########################################
+
+TrajectoryTiming trajectory_timing
+
+---
+
+########################################
+# Broadcast  Response                  #
+########################################
+
