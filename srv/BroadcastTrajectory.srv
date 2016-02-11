@@ -7,6 +7,9 @@ string DEFAULT_SERVICE_NAME=riemo_move_broadcast_trajectory_service
 # Broadcast Request                    #
 ########################################
 
+# Specifies the parameters of the trajectory we are extracting. The trajectory
+# is always queried from the current configuration, so we do not need to supply
+# it here.
 TrajectoryTiming trajectory_timing
 
 ---
@@ -15,3 +18,6 @@ TrajectoryTiming trajectory_timing
 # Broadcast  Response                  #
 ########################################
 
+# Reports how long the trajectory will take to execute fully. The full trajectory
+# is published rather than being returned.
+duration trajectory_duration

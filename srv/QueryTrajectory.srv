@@ -7,6 +7,9 @@ string DEFAULT_SERVICE_NAME=riemo_move_trajectory_query_service
 # Trajectory Query Request             #
 ########################################
 
+# Specifies the parameters of the trajectory we are extracting. The trajectory
+# is always queried from the current configuration, so we do not need to supply
+# it here.
 TrajectoryTiming trajectory_timing
 
 ---
@@ -15,4 +18,5 @@ TrajectoryTiming trajectory_timing
 # Trajectory Query Response            #
 ########################################
 
+# Returns the entire trajectory in the response
 trajectory_msgs/JointTrajectory trajectory

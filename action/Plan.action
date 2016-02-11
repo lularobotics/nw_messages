@@ -15,9 +15,10 @@ geometry_msgs/Point target
 bool use_upright_orientation_constraint
 bool use_upright_orientation_constraint_end_only
 
-string approach_constraint_csv
-string passthrough_constraint_csv
-string obstacle_linearization_constraint_csv
+# Note on format: <v{x,y,z}> denotes a vector and <pt{x,y,z}> denotes a point.
+string approach_constraint_csv # Format: <vx>,<vy>,<vz>
+string obstacle_linearization_constraint_csv # Format: <vx>,<vy>,<vz>,<t_fraction>
+string passthrough_constraint_csv # Format: <ptx>,<pty>,<ptz>,<radius>,<t_fraction>
 
 ---
 
