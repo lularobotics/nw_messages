@@ -12,12 +12,35 @@ string DEFAULT_ACTION_NAME=riemo_move_plan_action
 # 3D target position
 geometry_msgs/Point target
 
+# Set to true to include an orientation constraint to keep the hand upright
+# throughout the entire motion.
 bool use_upright_orientation_constraint
+
+# Set to true to include an orientation constraint to keep the hand upright
+# only at the final configuration.
 bool use_upright_orientation_constraint_end_only
 
-# Note on format: <v{x,y,z}> denotes a vector and <pt{x,y,z}> denotes a point.
+# Note on format: in the following <v{x,y,z}> denotes a vector and <pt{x,y,z}>
+# denotes a point.
+
+# Specify an approach constraint. This constraint is a vector, specified as a comma
+# separated string of three numbers, specifying the direction that the end-effector should
+# approach the target from at the end of the motion.
 string approach_constraint_csv # Format: <vx>,<vy>,<vz>
+
+# This CSV gives a ray pointing from the the center of the sphere to the
+# surface where a linearization constraint should be added. A linearization
+# constraint is a linear function whose zero set is offset by .03 m radially
+# from the tangent to the surface and increases away from the sphere. The
+# constraint is applied t_fraction of the way through the trajectory and it
+# enforces that the end-effector be on the position side of the plane at that
+# point.
 string obstacle_linearization_constraint_csv # Format: <vx>,<vy>,<vz>,<t_fraction>
+
+# The passthrough constraint is a more restrictive variant of a constraint that
+# constrains the behavior of the robot as it moves from point to point. It gives
+# a full box at (<ptx>,<pty>,<ptz>) with 1/2 side length (radius) of <radius>. 
+# It is again applied t_fraction of the way through the trajectory.
 string passthrough_constraint_csv # Format: <ptx>,<pty>,<ptz>,<radius>,<t_fraction>
 
 ---
