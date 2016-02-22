@@ -12,6 +12,19 @@ string DEFAULT_ACTION_NAME=riemo_move_plan_action
 # 3D target position
 geometry_msgs/Point target
 
+# Behavior type of "over" makes the robot go over the object; behavior type of
+# "around" makes it go around the object.
+string behavioral_type
+string BEHAVIORAL_TYPE_DEFAULT=default
+string BEHAVIORAL_TYPE_OVER=over
+string BEHAVIORAL_TYPE_AROUND=around
+
+# Specifies the orientation the end-effector should have to be considered
+# "upright". Must be orthogonal to the approach_constraint_csv. Constrains the
+# y-axis of the end-effector. Application of this constraint are governed by
+# use_upright_orientation_constraint{_end_only}.
+string upright_constraint_direction_csv
+
 # Set to true to include an orientation constraint to keep the hand upright
 # throughout the entire motion.
 bool use_upright_orientation_constraint
@@ -27,6 +40,10 @@ bool use_upright_orientation_constraint_end_only
 # separated string of three numbers, specifying the direction that the end-effector should
 # approach the target from at the end of the motion.
 string approach_constraint_csv # Format: <vx>,<vy>,<vz>
+
+# When true, approaches the target *from* the approach direction and opens and
+# closes the grippers to establish a grasp.
+bool shape_approach
 
 # This CSV gives a ray pointing from the the center of the sphere to the
 # surface where a linearization constraint should be added. A linearization
